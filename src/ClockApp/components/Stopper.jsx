@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Button from "./Button";
 
 function Stopper() {
   const [time, setTime] = useState(0);
@@ -54,13 +55,16 @@ function Stopper() {
         <span>{formattedMseconds}</span>
       </p>
 
-      <button onClick={isRunning ? handleLap : handleReset}>
+      <Button className="button" onClick={isRunning ? handleLap : handleReset}>
         {isRunning ? "Köridő" : "Visszaállítás"}
-      </button>
+      </Button>
 
-      <button onClick={handleStartStop}>
+      <Button
+        className={isRunning ? "button button-red" : "button button-green"}
+        onClick={handleStartStop}
+      >
         {isRunning ? "Megállít" : "Indít"}
-      </button>
+      </Button>
 
       {laps.length > 0 && (
         <div>
