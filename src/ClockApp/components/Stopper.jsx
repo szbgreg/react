@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Button from "./Button";
+import "./Stopper.css";
 
 function Stopper() {
   const [time, setTime] = useState(0);
@@ -47,29 +48,35 @@ function Stopper() {
   const formattedMseconds = String(mseconds).padStart(2, "0");
 
   return (
-    <>
-      <h2>Időmérés</h2>
+    <div className="stopper-container">
+      <div className="container">
+        <h2>Időmérés</h2>
 
-      <p>
-        <span>{formattedMinutes}</span>:<span>{formattedSeconds}</span>.
-        <span>{formattedMseconds}</span>
-      </p>
+        <p className="time-display">
+          <span>{formattedMinutes}</span>:<span>{formattedSeconds}</span>.
+          <span>{formattedMseconds}</span>
+        </p>
 
-      <Button className="button" onClick={isRunning ? handleLap : handleReset}>
-        {isRunning ? "Köridő" : "Visszaállítás"}
-      </Button>
+        <Button
+          className="button"
+          onClick={isRunning ? handleLap : handleReset}
+        >
+          {isRunning ? "Köridő" : "Visszaállítás"}
+        </Button>
 
-      <Button
-        className={isRunning ? "button button-red" : "button button-green"}
-        onClick={handleStartStop}
-      >
-        {isRunning ? "Megállít" : "Indít"}
-      </Button>
+        <Button
+          className={isRunning ? "button button-red" : "button button-green"}
+          onClick={handleStartStop}
+        >
+          {isRunning ? "Megállít" : "Indít"}
+        </Button>
+      </div>
 
       {laps.length > 0 && (
-        <div>
+        <div className="laps-container">
           <h3>Köridők:</h3>
-          <ul>
+
+          <ul className="laps-list">
             {laps.map((lap, index) => {
               const lapMinutes = String(Math.floor(lap / 60000)).padStart(
                 2,
@@ -84,14 +91,17 @@ function Stopper() {
 
               return (
                 <li key={index}>
-                  {index + 1}. kör: {lapMinutes}:{lapSeconds}.{lapMseconds}
+                  <span className="lap-number">{index + 1}. kör:</span>
+                  <span className="lap-time">
+                    {lapMinutes}:{lapSeconds}.{lapMseconds}
+                  </span>
                 </li>
               );
             })}
           </ul>
         </div>
       )}
-    </>
+    </div>
   );
 }
 

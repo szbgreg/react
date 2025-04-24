@@ -1,0 +1,57 @@
+.stopper-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: rgb(27, 27, 27);
+}
+
+.container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fefefe;
+  border-radius: 0 0 5px 5px;
+  border: 1px solid #ccc;
+  border-top: none;
+  width: 500px;
+  min-height: 250px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.time-display {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+.laps-container {
+  text-align: center;
+}
+
+.laps-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.laps-list li {
+  background-color: #fefefe;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 500px;
+  padding: 10px 0;
+  margin: 7px 0;
+}
+
+.lap-number {
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
+}
+
+.lap-time {
+  font-size: 24px;
+}
