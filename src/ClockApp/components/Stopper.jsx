@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 function Stopper() {
   const [time, setTime] = useState(0);
   const [isRunning, setIsRunning] = useState(false);
+  const [laps, setLaps] = useState([]);
 
   // Az idő frissítése, de csak akkor ha fut a mérés
   useEffect(() => {
@@ -30,6 +31,11 @@ function Stopper() {
     setIsRunning(false);
   };
 
+  // Köridő rögzítése
+  const handleLap = () => {
+    setLaps((prevLaps) => [...prevLaps, time]);
+  };
+
   const minutes = Math.floor(time / 60000);
   const seconds = Math.floor((time % 60000) / 1000);
   const mseconds = Math.floor((time % 1000) / 10);
@@ -47,10 +53,33 @@ function Stopper() {
         <span>{formattedSeconds}</span>.
         <span>{formattedMseconds}</span>
       </p>
-      <button onClick={handleReset}>Visszaállítás</button>
+
+      <button onClick={isRunning ? handleLap : handleReset}>
+        {isRunning ? "Köridő" : "Visszaállítás"}
+      </button>
+
       <button onClick={handleStartStop}>
         {isRunning ? "Megállít" : "Indít"}
       </button>
+
+      {laps.length > 0 && (
+        <div>
+          <h3>Köridők:</h3>
+          <ul>
+            {laps.map((lap, index) => {
+              const lapMinutes = String(Math.floor(lap / 60000)).padStart(2, "0");
+              const lapSeconds = String(Math.floor((lap % 60000) / 1000)).padStart(2, "0");
+              const lapMseconds = String(Math.floor((lap % 1000) / 10)).padStart(2, "0");
+
+              return (
+                <li key={index}>
+                  {index + 1}. kör: {lapMinutes}:{lapSeconds}.{lapMseconds}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      )}
     </>
   );
 }
