@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout";
 import NotFoundPage from "./NotFoundPage";
 import ClockApp from "./ClockApp/components/ClockApp";
-import ExpenseApp from "./ExpenseApp/components/ExpenseApp";
+import ExpenseApp from "./ExpenseApp/ExpenseApp";
 
 function App() {
   return (
