@@ -53,8 +53,8 @@ function Stopper() {
         <h2>Időmérés</h2>
 
         <p className="time-display">
-          <span>{formattedMinutes}</span>:<span>{formattedSeconds}</span>.
-          <span>{formattedMseconds}</span>
+          <span className="digit">{formattedMinutes}</span>:<span className="digit">{formattedSeconds}</span>.
+          <span className="digit">{formattedMseconds}</span>
         </p>
 
         <Button

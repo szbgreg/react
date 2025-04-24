@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "./DigitalClock.css";
 
 function DigitalClock() {
   const [time, setTime] = useState(new Date());
@@ -13,14 +14,14 @@ function DigitalClock() {
   }, []);
 
   return (
-    <>
+    <div className="clock-container">
       <h2>A pontos idő</h2>
-      <p>{time.toLocaleTimeString()}</p>
+      <p className="clock-timer">{time.toLocaleTimeString()}</p>
       <p>
         {time.toLocaleDateString()} -{" "}
         {time.toLocaleDateString("hu-HU", { weekday: "long" })}
       </p>
-    </>
+    </div>
   );
 }
 

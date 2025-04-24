@@ -1,0 +1,33 @@
+.clock-container {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fefefe;
+  border-radius: 0 0 5px 5px;
+  border: 1px solid #ccc;
+  border-top: none;
+  width: 500px;
+  min-height: 250px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+}
+
+.clock-container h2 {
+  font-weight: normal;
+}
+
+.clock-container p {
+  margin: 20px 0;
+  padding: 0;
+}
+
+.clock-container p:last-of-type {
+  margin-bottom: 0;
+  font-size: 24px;
+}
+
+.clock-timer {
+  font-family: sans-serif;
+  font-size: 36px;
+  color: #333;
+  font-weight: bold;
+}
