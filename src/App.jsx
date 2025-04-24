@@ -1,10 +1,20 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./Layout";
+import NotFoundPage from "./NotFoundPage";
 import ClockApp from "./ClockApp/components/ClockApp";
+import ExpenseApp from "./ExpenseApp/components/ExpenseApp";
 
 function App() {
   return (
-    <>
-      <ClockApp />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<ClockApp />} />
+          <Route path="expense" element={<ExpenseApp />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
