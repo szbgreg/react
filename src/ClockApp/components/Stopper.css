@@ -32,36 +32,6 @@
   margin: 20px 0;
 }
 
-.laps-container {
-  text-align: center;
-}
-
-.laps-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-}
-
-.laps-list li {
-  background-color: #fefefe;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 500px;
-  padding: 10px 0;
-  margin: 7px 0;
-}
-
-.lap-number {
-  font-size: 24px;
-  font-weight: bold;
-  display: block;
-}
-
-.lap-time {
-  font-size: 24px;
-}
-
 .digit {
   display: inline-block;
   text-align: center;
