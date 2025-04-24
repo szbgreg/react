@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DigitalClock from "./DigitalClock";
 
 function ClockApp() {
   const [mode, setMode] = useState("clock");
@@ -10,7 +11,7 @@ function ClockApp() {
       <div>
         <button onClick={() => setMode("clock")}>Óra</button>
         <button onClick={() => setMode("stopper")}>Stopper</button>
-        {mode === "clock" && <h2>Digitális óra</h2>}
+        {mode === "clock" && <DigitalClock />}
         {mode === "stopper" && <h2>Stopper</h2>}
       </div>
     </div>
