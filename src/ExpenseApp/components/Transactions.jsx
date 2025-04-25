@@ -19,7 +19,7 @@ const Transactions = ({ transactions }) => {
         <ul>
           {income.map((t) => (
             <li key={t.id}>
-              {t.description}: {t.amount} Ft, {formatDate(t.date)}
+              {t.description}: {t.amount} Ft, {formatDate(t.date)}  {t.note}
             </li>
           ))}
         </ul>
@@ -30,7 +30,7 @@ const Transactions = ({ transactions }) => {
         <ul>
           {expense.map((t) => (
             <li key={t.id}>
-              {t.description}: {t.amount} Ft, {t.date}
+              {t.description}: {t.amount} Ft, {t.date} {t.note}
             </li>
           ))}
         </ul>

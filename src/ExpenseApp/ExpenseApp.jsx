@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import TransactionForm from "./components/TransactionForm";
 import Transactions from "./components/Transactions";
 import Filter from "./components/Filter";
+import defaultTransactions from "./defaultTransactions";
 
 // A költségkezelő alkalmazás fő komponense
 function ExpenseApp() {
-  const [transactions, setTransactions] = useState([]);
+  const [transactions, setTransactions] = useState(defaultTransactions);
   const [searchText, setSearchText] = useState("");
   const [filterMonth, setFilterMonth] = useState("");
 
