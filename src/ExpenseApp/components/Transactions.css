@@ -5,7 +5,7 @@
 }
 
 .transactions-container h3 {
-  background-color: #bbd4f0;
+  background-color: #d0dff0;
   border-radius: 4px;
   color: #333;
   font-size: 1.5rem;
@@ -59,7 +59,7 @@
 .note {
   text-align: left;
   padding: 0.5rem 0.7rem;
-  background-color: #bbd4f0;
+  background-color: #d0dff0;
   border-top: 1px solid #eee;
   font-size: 0.9rem;
   color: #333;
