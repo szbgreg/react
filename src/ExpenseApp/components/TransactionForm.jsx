@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 
+const getCurrentDate = () => new Date().toISOString().split("T")[0];
+
 export default function TransactionForm({ addTransaction }) {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [type, setType] = useState("income");
+  const [date, setDate] = useState(getCurrentDate());
 
   const handleBtnClick = () => {
     // Ellenőrizzük, hogy a leírás és az összeg meg van-e adva
@@ -14,6 +17,7 @@ export default function TransactionForm({ addTransaction }) {
       id: Date.now(),
       description,
       amount: parseInt(amount),
+      date: date,
       type,
     };
 
@@ -23,6 +27,7 @@ export default function TransactionForm({ addTransaction }) {
     addTransaction(newTransaction);
     setDescription("");
     setAmount("");
+    setDate(getCurrentDate());
     setType("income");
   };
 
@@ -45,6 +50,12 @@ export default function TransactionForm({ addTransaction }) {
         placeholder="Összeg"
         value={amount}
         onChange={(e) => setAmount(e.target.value)}
+      />
+
+      <input
+        type="date"
+        value={date}
+        onChange={(e) => setDate(e.target.value)}
       />
 
       <button onClick={handleBtnClick}>Hozzáadás</button>

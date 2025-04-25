@@ -1,6 +1,16 @@
 import React, { useState } from "react";
 import TransactionForm from "./components/TransactionForm";
 
+// A dátum formázása YYYY.MM.DD. formátumra
+const formatDate = (date) => {
+  const d = new Date(date);
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${year}.${month}.${day}.`;
+};
+
+// A költségkezelő alkalmazás fő komponense
 function ExpenseApp() {
   const [transactions, setTransactions] = useState([]);
 
@@ -23,7 +33,7 @@ function ExpenseApp() {
           <ul>
             {income.map((t) => (
               <li key={t.id}>
-                {t.description}: {t.amount} Ft
+                {t.description}: {t.amount} Ft, {formatDate(t.date)}
               </li>
             ))}
           </ul>
@@ -34,7 +44,7 @@ function ExpenseApp() {
           <ul>
             {expense.map((t) => (
               <li key={t.id}>
-                {t.description}: {t.amount} Ft
+                {t.description}: {t.amount} Ft, {t.date}
               </li>
             ))}
           </ul>
