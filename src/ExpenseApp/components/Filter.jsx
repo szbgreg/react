@@ -1,8 +1,9 @@
 import React from "react";
+import "./Filter.css";
 
 const Filter = ({ searchText, setSearchText, filterMonth, setFilterMonth }) => {
   return (
-    <div>
+    <div className="filter-container">
       <input
         type="text"
         placeholder="Keresés..."

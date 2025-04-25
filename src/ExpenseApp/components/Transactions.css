@@ -1,0 +1,26 @@
+.transactions-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.transactions-container div {
+  width: 48%;
+}
+
+.transactions-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.transactions-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}

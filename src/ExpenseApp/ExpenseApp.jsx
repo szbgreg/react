@@ -3,6 +3,7 @@ import TransactionForm from "./components/TransactionForm";
 import Transactions from "./components/Transactions";
 import Filter from "./components/Filter";
 import defaultTransactions from "./defaultTransactions";
+import "./ExpenseApp.css";
 
 // A költségkezelő alkalmazás fő komponense
 function ExpenseApp() {
@@ -35,8 +36,12 @@ function ExpenseApp() {
   });
 
   return (
-    <div>
+    <div id="expense-app">
       <h1>Költségkezelő</h1>
+
+      <p className="balance">
+        Egyenleg: <b>{balance} Ft</b>
+      </p>
 
       <Filter
         searchText={searchText}
@@ -44,9 +49,6 @@ function ExpenseApp() {
         filterMonth={filterMonth}
         setFilterMonth={setFilterMonth}
       />
-
-      <h2>Egyenleg: {balance} Ft</h2>
-
       <Transactions transactions={filteredTransactions} />
 
       <TransactionForm addTransaction={(d) => addTransaction(d)} />

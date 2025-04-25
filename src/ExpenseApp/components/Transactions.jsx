@@ -1,4 +1,5 @@
 import React from "react";
+import "./Transactions.css";
 
 // A dátum formázása YYYY.MM.DD. formátumra
 const formatDate = (date) => {
@@ -13,13 +14,13 @@ const Transactions = ({ transactions }) => {
   const income = transactions.filter((t) => t.type === "income");
   const expense = transactions.filter((t) => t.type === "expense");
   return (
-    <div>
+    <div className="transactions-container">
       <div>
         <h3>Bevételek</h3>
-        <ul>
+        <ul className="transactions-list">
           {income.map((t) => (
             <li key={t.id}>
-              {t.description}: {t.amount} Ft, {formatDate(t.date)}  {t.note}
+              {t.description}: {t.amount} Ft, {formatDate(t.date)} {t.note}
             </li>
           ))}
         </ul>
@@ -27,7 +28,7 @@ const Transactions = ({ transactions }) => {
 
       <div>
         <h3>Kiadások</h3>
-        <ul>
+        <ul className="transactions-list">
           {expense.map((t) => (
             <li key={t.id}>
               {t.description}: {t.amount} Ft, {t.date} {t.note}

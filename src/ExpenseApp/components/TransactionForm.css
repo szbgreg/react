@@ -3,10 +3,12 @@
   flex-direction: column;
   gap: 1rem;
   width: 500px;
+  margin: 0 auto;
 }
 
 .transaction-form input,
-.transaction-form select {
+.transaction-form select,
+.transaction-form textarea {
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;

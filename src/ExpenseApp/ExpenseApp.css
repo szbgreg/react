@@ -1,0 +1,11 @@
+#expense-app {
+    width: 1200px;
+    margin: auto;
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .balance {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
