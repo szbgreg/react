@@ -19,8 +19,20 @@ const Transactions = ({ transactions }) => {
         <h3>Bevételek</h3>
         <ul className="transactions-list">
           {income.map((t) => (
-            <li key={t.id}>
-              {t.description}: {t.amount} Ft, {formatDate(t.date)} {t.note}
+            <li key={t.id} className="transaction">
+              <div className="transaction-info">
+                <div className="transaction-details">
+                  <span className="description">{t.description}</span>
+                  <span className="date"> {formatDate(t.date)}</span>
+                </div>
+                <div className="transaction-meta">
+                  <span className="amount income">{t.amount} Ft</span>
+                </div>
+              </div>
+
+              <div className="note">
+                <b>Megyjegyzés: </b> {t.note}
+              </div>
             </li>
           ))}
         </ul>
@@ -30,8 +42,20 @@ const Transactions = ({ transactions }) => {
         <h3>Kiadások</h3>
         <ul className="transactions-list">
           {expense.map((t) => (
-            <li key={t.id}>
-              {t.description}: {t.amount} Ft, {t.date} {t.note}
+            <li key={t.id} className="transaction">
+              <div className="transaction-info">
+                <div className="transaction-details">
+                  <span className="description">{t.description}</span>
+                  <span className="date"> {formatDate(t.date)}</span>
+                </div>
+                <div className="transaction-meta">
+                  <span className="amount expense">{t.amount} Ft</span>
+                </div>
+              </div>
+
+              <div className="note">
+                <b>Megyjegyzés: </b> {t.note}
+              </div>
             </li>
           ))}
         </ul>

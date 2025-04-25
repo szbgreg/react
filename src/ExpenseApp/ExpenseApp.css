@@ -1,11 +1,21 @@
 #expense-app {
-    width: 1200px;
-    margin: auto;
-    padding: 2rem;
-    text-align: center;
-  }
+  width: 1200px;
+  margin: auto;
+  padding: 2rem;
+  text-align: center;
+}
 
-  .balance {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-  }
+.balance {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.balance-red {
+  color: #d9534f;
+  font-weight: bold;
+}
+
+.balance-green {
+  color: #5cb85c;
+  font-weight: bold;
+}

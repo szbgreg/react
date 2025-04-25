@@ -40,7 +40,10 @@ function ExpenseApp() {
       <h1>Költségkezelő</h1>
 
       <p className="balance">
-        Egyenleg: <b>{balance} Ft</b>
+        Egyenleg:{" "}
+        <span className={balance >= 0 ? "balance-green" : "balance-red"}>
+          {balance} Ft
+        </span>
       </p>
 
       <Filter
