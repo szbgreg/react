@@ -1,0 +1,20 @@
+.filter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
+  gap: 1rem;
+}
+
+.filter-container input,
+.filter-container select {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.filter-container input[type="text"] {
+  width: 400px;
+  text-align: right;
+}
