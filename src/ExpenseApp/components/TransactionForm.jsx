@@ -20,7 +20,7 @@ export default function TransactionForm({ addTransaction }) {
     const newTransaction = {
       id: Date.now(),
       description,
-      amount: parseInt(amount),
+      amount: type === "income" ? parseInt(amount) : -parseInt(amount),
       date: date,
       note: note,
       type,

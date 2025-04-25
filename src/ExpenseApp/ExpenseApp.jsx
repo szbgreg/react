@@ -10,9 +10,18 @@ function ExpenseApp() {
     setTransactions([...transactions, data]);
   };
 
+  // Egyenleg kiszámítása
+  let balance = 0;
+
+  transactions.forEach((transaction) => {
+    balance += transaction.amount;
+  });
+
   return (
     <div>
       <h1>Havi Költségkezelő</h1>
+
+      <h2>Egyenleg: {balance} Ft</h2>
 
       <Transactions transactions={transactions} />
 
