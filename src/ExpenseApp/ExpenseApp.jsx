@@ -40,6 +40,19 @@ function ExpenseApp() {
     });
   };
 
+  const deleteTransaction = (id) => {
+    const confirmDelete = window.confirm(
+      "Biztosan törölni szeretnéd ezt a tranzakciót?"
+    );
+    if (!confirmDelete) return;
+
+    setTransactions((prev) => prev.filter((t) => t.id !== id));
+
+    if (selectedTransaction?.id === id) {
+      setSelectedTransaction(null);
+    }
+  };
+
   // Egyenleg kiszámítása
   let balance = 0;
 
@@ -67,6 +80,7 @@ function ExpenseApp() {
       <Transactions
         transactions={filteredTransactions}
         onSelectTransaction={setSelectedTransaction}
+        onDeleteTransaction={deleteTransaction}
       />
 
       <TransactionForm

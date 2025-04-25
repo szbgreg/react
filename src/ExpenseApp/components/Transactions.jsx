@@ -10,10 +10,14 @@ const formatDate = (date) => {
   return `${year}.${month}.${day}.`;
 };
 
-const Transactions = ({ transactions, onSelectTransaction }) => {
+const Transactions = ({
+  transactions,
+  onSelectTransaction,
+  onDeleteTransaction,
+}) => {
   const income = transactions.filter((t) => t.type === "income");
   const expense = transactions.filter((t) => t.type === "expense");
-  
+
   return (
     <div className="transactions-container">
       <div>
@@ -37,6 +41,15 @@ const Transactions = ({ transactions, onSelectTransaction }) => {
 
               <div className="note">
                 <b>Megyjegyzés: </b> {t.note}
+                <span
+                  className="delete-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onDeleteTransaction(t.id);
+                  }}
+                >
+                  Törlés
+                </span>
               </div>
             </li>
           ))}
@@ -64,6 +77,15 @@ const Transactions = ({ transactions, onSelectTransaction }) => {
 
               <div className="note">
                 <b>Megyjegyzés: </b> {t.note}
+                <span
+                  className="delete-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onDeleteTransaction(t.id);
+                  }}
+                >
+                  Törlés
+                </span>
               </div>
             </li>
           ))}
