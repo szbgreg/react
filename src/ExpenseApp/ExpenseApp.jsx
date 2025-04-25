@@ -12,17 +12,19 @@ function ExpenseApp() {
   const [filterMonth, setFilterMonth] = useState("");
 
   // Szűrjük a tranzakciókat a keresett szöveg és a hónap alapján
-  const filteredTransactions = transactions.filter((t) => {
-    const matchesText = t.description
-      .toLowerCase()
-      .includes(searchText.toLowerCase());
+  const filteredTransactions = transactions
+    .filter((t) => {
+      const matchesText = t.description
+        .toLowerCase()
+        .includes(searchText.toLowerCase());
 
-    const matchesMonth = filterMonth
-      ? new Date(t.date).getMonth() + 1 === parseInt(filterMonth)
-      : true;
+      const matchesMonth = filterMonth
+        ? new Date(t.date).getMonth() + 1 === parseInt(filterMonth)
+        : true;
 
-    return matchesText && matchesMonth;
-  });
+      return matchesText && matchesMonth;
+    })
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
 
   const addTransaction = (data) => {
     setTransactions([...transactions, data]);
