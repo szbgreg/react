@@ -10,16 +10,21 @@ const formatDate = (date) => {
   return `${year}.${month}.${day}.`;
 };
 
-const Transactions = ({ transactions }) => {
+const Transactions = ({ transactions, onSelectTransaction }) => {
   const income = transactions.filter((t) => t.type === "income");
   const expense = transactions.filter((t) => t.type === "expense");
+  
   return (
     <div className="transactions-container">
       <div>
         <h3>Bevételek</h3>
         <ul className="transactions-list">
           {income.map((t) => (
-            <li key={t.id} className="transaction">
+            <li
+              key={t.id}
+              className="transaction"
+              onClick={() => onSelectTransaction(t)}
+            >
               <div className="transaction-info">
                 <div className="transaction-details">
                   <span className="description">{t.description}</span>
@@ -42,7 +47,11 @@ const Transactions = ({ transactions }) => {
         <h3>Kiadások</h3>
         <ul className="transactions-list">
           {expense.map((t) => (
-            <li key={t.id} className="transaction">
+            <li
+              key={t.id}
+              className="transaction"
+              onClick={() => onSelectTransaction(t)}
+            >
               <div className="transaction-info">
                 <div className="transaction-details">
                   <span className="description">{t.description}</span>

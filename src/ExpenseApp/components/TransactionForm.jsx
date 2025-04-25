@@ -1,14 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./TransactionForm.css";
 
 const getCurrentDate = () => new Date().toISOString().split("T")[0];
 
-export default function TransactionForm({ addTransaction }) {
+export default function TransactionForm({
+  addTransaction,
+  selectedTransaction,
+}) {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [type, setType] = useState("income");
   const [date, setDate] = useState(getCurrentDate());
   const [note, setNote] = useState("");
+  const [isEdit, setIsEdit] = useState(false);
+
+  useEffect(() => {
+    if (selectedTransaction) {
+      setDescription(selectedTransaction.description);
+      setAmount(selectedTransaction.amount);
+      setDate(selectedTransaction.date);
+      setType(selectedTransaction.type);
+      setNote(selectedTransaction.note);
+      setIsEdit(true);
+    } else {
+      setIsEdit(false);
+    }
+  }, [selectedTransaction]);
 
   const handleBtnClick = (e) => {
     e.preventDefault();
@@ -18,7 +35,7 @@ export default function TransactionForm({ addTransaction }) {
 
     // Beállítjuk az új tranzakciót
     const newTransaction = {
-      id: Date.now(),
+      id: selectedTransaction ? selectedTransaction.id : Date.now(),
       description,
       amount: type === "income" ? parseInt(amount) : -parseInt(amount),
       date: date,
@@ -35,11 +52,12 @@ export default function TransactionForm({ addTransaction }) {
     setDate(getCurrentDate());
     setType("income");
     setNote("");
+    setIsEdit(false);
   };
 
   return (
     <form className="transaction-form">
-      <h2>Új tranzakció hozzáadása</h2>
+      <h2>{isEdit ? "Tranzakció szerkesztése" : "Új tranzakció hozzáadása"}</h2>
 
       <input
         type="text"
@@ -75,7 +93,7 @@ export default function TransactionForm({ addTransaction }) {
       ></textarea>
 
       <button type="submit" onClick={handleBtnClick}>
-        Hozzáadás
+        Mentés
       </button>
     </form>
   );

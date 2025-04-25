@@ -10,6 +10,7 @@ function ExpenseApp() {
   const [transactions, setTransactions] = useState(defaultTransactions);
   const [searchText, setSearchText] = useState("");
   const [filterMonth, setFilterMonth] = useState("");
+  const [selectedTransaction, setSelectedTransaction] = useState(null);
 
   // Szűrjük a tranzakciókat a keresett szöveg és a hónap alapján
   const filteredTransactions = transactions
@@ -27,7 +28,16 @@ function ExpenseApp() {
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 
   const addTransaction = (data) => {
-    setTransactions([...transactions, data]);
+    setTransactions((prev) => {
+      const exists = prev.find((t) => t.id === data.id);
+
+      // Ha már létezik a tranzakció, akkor frissítjük, különben hozzáadjuk
+      if (exists) {
+        return prev.map((t) => (t.id === data.id ? data : t));
+      } else {
+        return [...prev, data];
+      }
+    });
   };
 
   // Egyenleg kiszámítása
@@ -54,9 +64,15 @@ function ExpenseApp() {
         filterMonth={filterMonth}
         setFilterMonth={setFilterMonth}
       />
-      <Transactions transactions={filteredTransactions} />
+      <Transactions
+        transactions={filteredTransactions}
+        onSelectTransaction={setSelectedTransaction}
+      />
 
-      <TransactionForm addTransaction={(d) => addTransaction(d)} />
+      <TransactionForm
+        addTransaction={(d) => addTransaction(d)}
+        selectedTransaction={selectedTransaction}
+      />
     </div>
   );
 }
