@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./TransactionForm.css";
 
 const getCurrentDate = () => new Date().toISOString().split("T")[0];
 
@@ -9,7 +10,9 @@ export default function TransactionForm({ addTransaction }) {
   const [date, setDate] = useState(getCurrentDate());
   const [note, setNote] = useState("");
 
-  const handleBtnClick = () => {
+  const handleBtnClick = (e) => {
+    e.preventDefault();
+
     // Ellenőrizzük, hogy a leírás és az összeg meg van-e adva
     if (!description || !amount) return;
 
@@ -35,7 +38,9 @@ export default function TransactionForm({ addTransaction }) {
   };
 
   return (
-    <div>
+    <form className="transaction-form">
+      <h2>Új tranzakció hozzáadása</h2>
+
       <input
         type="text"
         placeholder="Megnevezés"
@@ -69,7 +74,9 @@ export default function TransactionForm({ addTransaction }) {
         onChange={(e) => setNote(e.target.value)}
       ></textarea>
 
-      <button onClick={handleBtnClick}>Hozzáadás</button>
-    </div>
+      <button type="submit" onClick={handleBtnClick}>
+        Hozzáadás
+      </button>
+    </form>
   );
 }
