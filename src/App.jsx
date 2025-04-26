@@ -3,6 +3,7 @@ import Layout from "./Layout";
 import NotFoundPage from "./NotFoundPage";
 import ClockApp from "./ClockApp/components/ClockApp";
 import ExpenseApp from "./ExpenseApp/ExpenseApp";
+import "./App.css";
 
 function App() {
   return (

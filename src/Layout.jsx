@@ -1,21 +1,26 @@
-import { Outlet, Link } from "react-router-dom";
+import React from "react";
+import { Outlet, NavLink } from "react-router-dom";
+import "./Layout.css";
 
 const Layout = () => {
   return (
     <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Óra & Stopperóra</Link>
-          </li>
-          <li>
-            <Link to="/expense">Kiadáskezelő</Link>
-          </li>
-        </ul>
-      </nav>
+      <header>
+        <nav>
+          <NavLink className="nav-link" to="/">
+            Óra & Stopperóra
+          </NavLink>
+          <NavLink className="nav-link" to="/expense">
+            Kiadáskezelő
+          </NavLink>
+        </nav>
+      </header>
 
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
     </>
   );
 };
+
 export default Layout;

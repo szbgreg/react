@@ -1,0 +1,31 @@
+header {
+  width: 100%;
+  padding: 15px 0;
+  background-color: #d0dff0;
+  color: #333;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.nav-link {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 15px 15px;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  background-color: #5b7999;
+  color: #f0f0f0;
+}
+
+/* ACTIVE állapot */
+.nav-link.active {
+  background-color: #23425f;
+  color: #ffffff;
+}
