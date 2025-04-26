@@ -7,7 +7,7 @@ import "./App.css";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/react">
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<ClockApp />} />
